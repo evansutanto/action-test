@@ -16,19 +16,25 @@ formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(messag
 logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
-try:
-    SOME_SECRET = os.environ["SOME_SECRET"]
-except KeyError:
-    SOME_SECRET = "Token not available!"
-    #logger.info("Token not available!")
-    #raise
-
 
 if __name__ == "__main__":
-    logger.info(f"Token value: {SOME_SECRET}")
+    logger.info("Run")
 
-    r = requests.get('https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE')
-    if r.status_code == 200:
-        data = r.json()
-        temperature = data["forecast"]["temp"]
-        logger.info(f'Weather in Berlin: {temperature}')
+    url = "https://oap.ind.nl/oap/api/desks/AM/slots"
+    params = {
+        "productKey": "DOC",
+        "persons": 1
+    }
+    response = requests.get(url, params=params, verify=False)
+    if response.status_code == 200:
+        text = '{' + response.text[21:]
+        t = time.localtime()
+        current_time = time.strftime("%H:%M:%S", t)
+
+        if '"date":"2024-12-1' in text:
+            # print(FOUND)
+            # print(f"{current_time} -- FOUND.")
+            logger.info(f'FOUND: {current_time}')
+        else:
+            logger.info('skip')
+            # print(f"{current_time} -- NOTHING")
