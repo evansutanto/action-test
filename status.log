@@ -237,3 +237,5 @@
 2024-12-17 11:39:52,776 - __main__ - INFO - Run
 2024-12-17 11:39:53,442 - __main__ - INFO - FOUND: 11:39:53
 2024-12-17 11:39:53,442 - __main__ - INFO - data - {"data":[{"key":"6c3af7b9adf5257fa9c4680bc14a1d19","date":"2024-12-18","startTime":"16:25","endTime":"16:30","parts":1},{"key":"ebc1d31f1f23e792ad95d4
+2024-12-17 11:52:14,821 - __main__ - INFO - Run
+2024-12-17 11:52:15,998 - __main__ - INFO - skip
