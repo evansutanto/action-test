@@ -36,6 +36,7 @@ if __name__ == "__main__":
             # print(FOUND)
             # print(f"{current_time} -- FOUND.")
             logger.info(f'FOUND: {current_time}')
+            logger.info(f'data - {text[:150]}')
         else:
             logger.info('skip')
             # print(f"{current_time} -- NOTHING")
